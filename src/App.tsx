@@ -1,6 +1,7 @@
 import React from "react";
 import { Link, Switch, Route } from "react-router-dom";
 import "./App.css";
+import { Registry, RSVP } from "./Components";
 
 function App(): JSX.Element {
   return (
@@ -15,10 +16,10 @@ function App(): JSX.Element {
       </nav>
       <Switch>
         <Route path="/registry">
-          <section>I am the registry</section>
+          <Registry />
         </Route>
         <Route path="/rsvp">
-          <button>RSVP bish</button>
+          <RSVP />
         </Route>
         <Route path="/info">
           <section>I am the info</section>
@@ -26,7 +27,7 @@ function App(): JSX.Element {
         <Route exact path="/">
           <main>
             <h1>We&#39;re getting married</h1>
-            <sub>Hel(l yeah)geson</sub>
+            <sub>#hellyeahgeson</sub>
           </main>
         </Route>
       </Switch>
