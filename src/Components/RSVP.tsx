@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { API_ENDPOINT } from "../config";
 import { Invite } from "../types";
+import { InviteCard } from "./InviteCard";
 
 export const RSVP: React.FC = () => {
   const [familyName, setFamilyName] = useState<string>("");
@@ -44,9 +45,7 @@ export const RSVP: React.FC = () => {
       {familiesToShow && (
         <section>
           {response.map((family) => (
-            <div key={family.id}>
-              {family.family_name}, {family.head_of_house}
-            </div>
+            <InviteCard {...family} key={family.id} />
           ))}
         </section>
       )}

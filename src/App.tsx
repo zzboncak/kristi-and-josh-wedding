@@ -2,6 +2,7 @@ import React from "react";
 import { Link, Switch, Route } from "react-router-dom";
 import "./App.css";
 import { Registry, RSVP } from "./Components";
+import { InviteDetails } from "./Components/InviteDetails";
 
 function App(): JSX.Element {
   return (
@@ -18,9 +19,10 @@ function App(): JSX.Element {
         <Route path="/registry">
           <Registry />
         </Route>
-        <Route path="/rsvp">
+        <Route exact path="/rsvp">
           <RSVP />
         </Route>
+        <Route path="/rsvp/:id" component={InviteDetails} />
         <Route path="/info">
           <section>I am the info</section>
         </Route>
