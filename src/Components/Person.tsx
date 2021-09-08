@@ -5,10 +5,16 @@ import { api } from "../utilities";
 
 export const PersonRsvp: React.FC<Person> = (props) => {
   const [currentStatus, setCurrentStatus] = useState<Person>(props);
-  const { first_name, last_name, person_age, id } = currentStatus;
+  const {
+    first_name,
+    last_name,
+    person_age,
+    id,
+    extra_confirmed,
+    allowed_extra
+  } = currentStatus;
 
   function handleRSVPChange(value: RSVP_Options) {
-    console.log("value", value);
     const updatedPerson = {
       ...currentStatus,
       rsvp: value
@@ -19,6 +25,16 @@ export const PersonRsvp: React.FC<Person> = (props) => {
         "content-type": "application/json"
       },
       body: JSON.stringify(updatedPerson)
+    }).then((response) => setCurrentStatus(response));
+  }
+
+  function handleExtraChange(value: RSVP_Options) {
+    api<Person>(`${API_ENDPOINT}/people/update/${id}`, {
+      method: "PATCH",
+      headers: {
+        "content-type": "application/json"
+      },
+      body: JSON.stringify({ extra_confirmed: value })
     }).then((response) => setCurrentStatus(response));
   }
 
@@ -44,6 +60,27 @@ export const PersonRsvp: React.FC<Person> = (props) => {
           {RSVP_Options.DECLINE}
         </option>
       </select>
+      {allowed_extra && (
+        <article>
+          <p>Congrats, you get a plus one. Is your boo coming?</p>
+          <p>
+            Boo&#39;s status:{" "}
+            {extra_confirmed ?? RSVP_Options.NO_RESPONSE}
+          </p>
+          <button
+            onClick={() =>
+              handleExtraChange(RSVP_Options.WILL_ATTEND)
+            }
+          >
+            Yes
+          </button>
+          <button
+            onClick={() => handleExtraChange(RSVP_Options.DECLINE)}
+          >
+            No
+          </button>
+        </article>
+      )}
     </>
   );
 };
