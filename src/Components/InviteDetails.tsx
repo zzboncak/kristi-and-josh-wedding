@@ -3,6 +3,7 @@ import { RouteComponentProps } from "react-router";
 import { Link } from "react-router-dom";
 import { API_ENDPOINT } from "../config";
 import { Person } from "../types";
+import { PersonRsvp } from "./Person";
 
 export const InviteDetails: React.FC<RouteComponentProps> = ({
   match
@@ -28,9 +29,7 @@ export const InviteDetails: React.FC<RouteComponentProps> = ({
     <>
       <article>
         {people?.map((person, i) => (
-          <p key={i}>
-            {person.first_name} {person.last_name}
-          </p>
+          <PersonRsvp {...person} key={i} />
         ))}
       </article>
       <Link to="/rsvp">Go back</Link>

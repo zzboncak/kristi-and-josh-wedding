@@ -4,13 +4,13 @@ import { Invite } from "../types";
 import { InviteCard } from "./InviteCard";
 
 export const RSVP: React.FC = () => {
-  const [familyName, setFamilyName] = useState<string>("");
+  const [keyword, setKeyword] = useState<string>("");
   const [response, setResponse] = useState<Invite[]>([]);
 
   function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
     // Fire request to server to find the family name
-    fetch(`${API_ENDPOINT}/invites/${familyName.toLowerCase()}`)
+    fetch(`${API_ENDPOINT}/invites/${keyword.toLowerCase()}`)
       .then((res) => {
         if (!res.ok) {
           console.error("Failed to fetch from the API");
@@ -18,8 +18,7 @@ export const RSVP: React.FC = () => {
         return res.json();
       })
       .then((data) => {
-        console.log(data);
-        setFamilyName("");
+        setKeyword("");
         setResponse(data);
       })
       .catch((error) => {
@@ -32,12 +31,12 @@ export const RSVP: React.FC = () => {
     <>
       <h2>Did you get an invite?</h2>
       <form onSubmit={(e) => handleSubmit(e)}>
-        <label htmlFor="familyName">Family Name: </label>
+        <label htmlFor="keyword">Search your keyword: </label>
         <input
           type="text"
-          name="familyName"
-          value={familyName}
-          onChange={(e) => setFamilyName(e.target.value)}
+          name="keyword"
+          value={keyword}
+          onChange={(e) => setKeyword(e.target.value)}
         />
         <br />
         <button>Search your last name</button>
