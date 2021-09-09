@@ -22,7 +22,7 @@ function App(): JSX.Element {
         <Route exact path="/rsvp">
           <RSVP />
         </Route>
-        <Route path="/rsvp/:id" component={InviteDetails} />
+        <Route path="/rsvp/:keyword" component={InviteDetails} />
         <Route path="/info">
           <section>I am the info</section>
         </Route>

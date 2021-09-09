@@ -5,15 +5,16 @@ import { API_ENDPOINT } from "../config";
 import { Person } from "../types";
 import { PersonRsvp } from "./Person";
 
-export const InviteDetails: React.FC<RouteComponentProps> = ({
-  match
-}) => {
+export const InviteDetails: React.FC<
+  RouteComponentProps & { family_id: number | undefined }
+> = ({ match }) => {
   const [people, setPeople] = useState<Person[] | undefined>(
     undefined
   );
-  const { id } = match.params as { id: string };
+  const { keyword } = match.params as { keyword: string };
+  // need to get the family id, then get the people
   useEffect(() => {
-    fetch(`${API_ENDPOINT}/people/${id}`)
+    fetch(`${API_ENDPOINT}/people/${keyword}`)
       .then((res) => {
         if (!res.ok) {
           console.error("Something went wrong");
@@ -21,6 +22,9 @@ export const InviteDetails: React.FC<RouteComponentProps> = ({
         return res.json();
       })
       .then((ppl) => {
+        if (!Array.isArray(ppl)) {
+          throw new Error(ppl.error);
+        }
         setPeople(ppl);
       })
       .catch((error) => console.error(error));
