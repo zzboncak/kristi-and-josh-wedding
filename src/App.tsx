@@ -30,6 +30,9 @@ function App(): JSX.Element {
           <main>
             <h1>We&#39;re getting married</h1>
             <sub>#hellyeahgeson</sub>
+            <footer>
+              <p className="signature">Joshua & Kristi</p>
+            </footer>
           </main>
         </Route>
       </Switch>

@@ -39,7 +39,7 @@ export const RSVP: React.FC = () => {
           onChange={(e) => setKeyword(e.target.value)}
         />
         <br />
-        <button>Search your last name</button>
+        <button>Search your keyword</button>
       </form>
       {familiesToShow && (
         <section>
