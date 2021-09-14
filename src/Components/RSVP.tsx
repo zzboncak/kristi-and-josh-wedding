@@ -36,11 +36,12 @@ export const RSVP: React.FC = () => {
           type="text"
           name="keyword"
           value={keyword}
-          disabled={keyword.length <= 2}
           onChange={(e) => setKeyword(e.target.value)}
         />
         <br />
-        <button>Search your keyword</button>
+        <button disabled={keyword.length <= 2}>
+          Search your keyword
+        </button>
       </form>
       {familiesToShow && (
         <section>
