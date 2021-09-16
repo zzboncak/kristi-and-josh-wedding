@@ -1,8 +1,9 @@
 import React from "react";
-import { Link, Switch, Route } from "react-router-dom";
+import { Switch, Route } from "react-router-dom";
 import "./App.css";
 import { Registry, RSVP } from "./Components";
 import { InviteDetails } from "./Components/InviteDetails";
+import { Link } from "./Components/Link/Link";
 
 function App(): JSX.Element {
   return (
