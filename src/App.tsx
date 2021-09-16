@@ -1,9 +1,10 @@
 import React from "react";
-import { Switch, Route } from "react-router-dom";
+import { Switch, Route, useLocation } from "react-router-dom";
 import "./App.css";
 import { Registry, RSVP } from "./Components";
 import { InviteDetails } from "./Components/InviteDetails";
 import { Link } from "./Components/Link/Link";
+import { useTransition, animated } from "react-spring";
 
 function App(): JSX.Element {
   return (
@@ -16,7 +17,26 @@ function App(): JSX.Element {
           <Link to="/info">Event Info</Link>
         </header>
       </nav>
-      <Switch>
+      <Routes />
+    </div>
+  );
+}
+type Absolute = "absolute";
+
+const Routes: React.FC = () => {
+  const location = useLocation();
+  const transitions = useTransition(location, {
+    from: {
+      opacity: 0,
+      position: "absolute" as Absolute,
+      width: "100%"
+    },
+    enter: { opacity: 1 },
+    leave: { opacity: 0 }
+  });
+  return transitions((props, item) => (
+    <animated.div style={props}>
+      <Switch location={item}>
         <Route path="/registry">
           <Registry />
         </Route>
@@ -37,8 +57,8 @@ function App(): JSX.Element {
           </main>
         </Route>
       </Switch>
-    </div>
-  );
-}
+    </animated.div>
+  ));
+};
 
 export default App;
