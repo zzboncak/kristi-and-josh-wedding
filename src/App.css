@@ -20,18 +20,13 @@ Accent red color #5e2426
 }
 
 .App-header {
-  background-color: #ffffff;
   min-height: 10vh;
-  display: flex;
-  flex-direction: row;
+  display: grid;
+  grid-template-columns: auto auto auto auto;
   align-items: center;
   justify-content: space-around;
   font-size: calc(10px + 2vmin);
   color: rgb(14, 12, 12);
-}
-
-.App-link {
-  color: #61dafb;
 }
 
 .signature {
