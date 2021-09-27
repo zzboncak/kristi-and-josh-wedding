@@ -17,6 +17,7 @@ Accent red color #5e2426
 .App {
   text-align: center;
   font-family: "Lora";
+  height: 100%;
 }
 
 .App-header {
