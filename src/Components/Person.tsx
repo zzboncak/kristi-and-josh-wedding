@@ -54,10 +54,10 @@ export const PersonRsvp: React.FC<Person> = (props) => {
           {RSVP_Options.NO_RESPONSE}
         </option>
         <option value={RSVP_Options.WILL_ATTEND}>
-          {RSVP_Options.WILL_ATTEND}
+          Can&#39;t wait to celebrate!
         </option>
         <option value={RSVP_Options.DECLINE}>
-          {RSVP_Options.DECLINE}
+          Bummed we can&#39;t be there!
         </option>
       </select>
       {allowed_extra && (
