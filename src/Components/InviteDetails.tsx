@@ -44,10 +44,12 @@ export const InviteDetails: React.FC<RouteComponentProps> = ({
     if (invite) {
       if (dietary_restrictions.length > 0) {
         updateInvite(invite.id, {
+          ...invite,
           dietary_restrictions
         }).then((invite) => setInvite(invite));
       } else if (dietary_restrictions.length === 0) {
         updateInvite(invite.id, {
+          ...invite,
           reset_diet: true
         }).then((invite) => {
           setInvite(invite);
@@ -61,10 +63,12 @@ export const InviteDetails: React.FC<RouteComponentProps> = ({
     if (invite) {
       if (favorite_song.length > 0) {
         updateInvite(invite.id, {
+          ...invite,
           favorite_song
         }).then((invite) => setInvite(invite));
       } else if (favorite_song.length === 0) {
         updateInvite(invite.id, {
+          ...invite,
           reset_song: true
         }).then((invite) => {
           setInvite(invite);
