@@ -48,7 +48,7 @@ export const RSVP: React.FC = () => {
         </button>
       </form>
       {familiesToShow && (
-        <section>
+        <section className="invite-cards">
           {response.map((family) => (
             <InviteCard {...family} key={family.id} />
           ))}
