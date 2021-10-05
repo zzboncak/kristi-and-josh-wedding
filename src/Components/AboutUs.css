@@ -1,0 +1,19 @@
+.hero-header {
+  margin-top: 15vh;
+}
+
+.about-us-header {
+  margin-top: 10vh;
+}
+
+.about-us-text {
+  max-width: 400px;
+  margin: 20px auto;
+  text-align: left;
+  padding: 20px;
+  font-weight: 450;
+}
+
+.footer {
+  padding-bottom: 30px;
+}

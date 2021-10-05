@@ -1,6 +1,7 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link } from "./Link/Link";
 import { Invite } from "../types";
+import "./InviteCard.css";
 
 export const InviteCard: React.FC<Invite> = ({
   family_name,
@@ -9,11 +10,7 @@ export const InviteCard: React.FC<Invite> = ({
 }) => {
   return (
     <Link to={`/rsvp/${keyword}`}>
-      <article>
-        <p>
-          {family_name}, {head_of_house}
-        </p>
-      </article>
+      The {head_of_house} {family_name} family
     </Link>
   );
 };

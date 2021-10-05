@@ -5,6 +5,7 @@ import { Registry, RSVP } from "./Components";
 import { InviteDetails } from "./Components/InviteDetails";
 import { Link } from "./Components/Link/Link";
 import { useTransition, animated } from "react-spring";
+import { AboutUs } from "./Components/AboutUs";
 
 function App(): JSX.Element {
   return (
@@ -48,13 +49,7 @@ const Routes: React.FC = () => {
           <section>I am the info</section>
         </Route>
         <Route exact path="/">
-          <main>
-            <h1>We&#39;re getting married</h1>
-            <sub>#hellyeahgeson</sub>
-            <footer>
-              <p className="signature">Joshua & Kristi</p>
-            </footer>
-          </main>
+          <AboutUs />
         </Route>
       </Switch>
     </animated.div>
