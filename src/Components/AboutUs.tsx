@@ -4,7 +4,7 @@ import "./AboutUs.css";
 export const AboutUs: React.FC = () => {
   return (
     <main>
-      <h1 className="hero-header">We&apos;re getting married</h1>
+      <h1 className="hero-header">We&apos;re getting married!</h1>
       <sub>#hellyeahgeson</sub>
 
       <h2 className="about-us-header">About Us</h2>

@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { API_ENDPOINT } from "../config";
 import { Invite } from "../types";
 import { InviteCard } from "./InviteCard";
+import "./RSVP.css";
 
 export const RSVP: React.FC = () => {
   const [keyword, setKeyword] = useState<string>("");
@@ -31,15 +32,18 @@ export const RSVP: React.FC = () => {
     <>
       <h2>Did you get an invite?</h2>
       <form onSubmit={(e) => handleSubmit(e)}>
-        <label htmlFor="keyword">Search your keyword: </label>
         <input
           type="text"
           name="keyword"
+          placeholder="keyword"
+          className="keyword-input"
           value={keyword}
           onChange={(e) => setKeyword(e.target.value)}
         />
-        <br />
-        <button disabled={keyword.length <= 2}>
+        <button
+          disabled={keyword.length <= 2}
+          className="search-button"
+        >
           Search your keyword
         </button>
       </form>
