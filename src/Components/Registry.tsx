@@ -31,7 +31,7 @@ export const Registry: React.FC = () => {
             rel="noreferrer"
             className="back"
           >
-            Chip in on a group gift.
+            Chip in on a group gift
           </a>
         </div>
       </div>
