@@ -8,7 +8,6 @@ export const PersonRsvp: React.FC<Person> = (props) => {
   const {
     first_name,
     last_name,
-    person_age,
     id,
     extra_confirmed,
     allowed_extra
@@ -43,7 +42,6 @@ export const PersonRsvp: React.FC<Person> = (props) => {
       <h3>
         {first_name} {last_name}
       </h3>
-      <p>{person_age}</p>
       <select
         value={currentStatus.rsvp}
         onChange={(e) =>
