@@ -4,7 +4,9 @@ import "./Registry.css";
 export const Registry: React.FC = () => {
   return (
     <section>
-      <h2>We need some stuff</h2>
+      <h2>
+        Help us fill our <i className="fas fa-home"></i>
+      </h2>
       <div className="card-container">
         <div className="registry-item">
           <div className="front">
@@ -31,7 +33,7 @@ export const Registry: React.FC = () => {
             rel="noreferrer"
             className="back"
           >
-            Chip in on a group gift.
+            Chip in on a group gift
           </a>
         </div>
       </div>
