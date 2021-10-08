@@ -6,6 +6,7 @@ import { InviteDetails } from "./Components/InviteDetails";
 import { Link } from "./Components/Link/Link";
 import { useTransition, animated } from "react-spring";
 import { AboutUs } from "./Components/AboutUs";
+import { EventInfo } from "./Components/EventInfo";
 
 function App(): JSX.Element {
   return (
@@ -46,7 +47,7 @@ const Routes: React.FC = () => {
         </Route>
         <Route path="/rsvp/:keyword" component={InviteDetails} />
         <Route path="/info">
-          <section>I am the info</section>
+          <EventInfo />
         </Route>
         <Route exact path="/">
           <AboutUs />
