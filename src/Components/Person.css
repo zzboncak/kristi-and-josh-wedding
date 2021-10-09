@@ -1,0 +1,10 @@
+.person {
+  margin: 30px auto;
+}
+
+.rsvp-select {
+  width: 225px;
+  height: 30px;
+  border-radius: 8px;
+  background-color: rgb(159, 173, 159, 0.5);
+}

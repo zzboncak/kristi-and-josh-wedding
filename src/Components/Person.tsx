@@ -2,9 +2,13 @@ import React, { useState } from "react";
 import { API_ENDPOINT } from "../config";
 import { Person, RSVP_Options } from "../types";
 import { api } from "../utilities";
+import "./Person.css";
+import Confetti from "react-confetti";
+import useWindowSize from "react-use/lib/useWindowSize";
 
 export const PersonRsvp: React.FC<Person> = (props) => {
   const [currentStatus, setCurrentStatus] = useState<Person>(props);
+  const [showConfetti, setShowConfetti] = useState<boolean>(false);
   const {
     first_name,
     last_name,
@@ -12,6 +16,7 @@ export const PersonRsvp: React.FC<Person> = (props) => {
     extra_confirmed,
     allowed_extra
   } = currentStatus;
+  const { width, height } = useWindowSize();
 
   function handleRSVPChange(value: RSVP_Options) {
     const updatedPerson = {
@@ -24,7 +29,12 @@ export const PersonRsvp: React.FC<Person> = (props) => {
         "content-type": "application/json"
       },
       body: JSON.stringify(updatedPerson)
-    }).then((response) => setCurrentStatus(response));
+    }).then((response) => {
+      setCurrentStatus(response);
+      if (response.rsvp === RSVP_Options.WILL_ATTEND) {
+        setShowConfetti(true);
+      }
+    });
   }
 
   function handleExtraChange(value: RSVP_Options) {
@@ -38,7 +48,7 @@ export const PersonRsvp: React.FC<Person> = (props) => {
   }
 
   return (
-    <>
+    <article className="person">
       <h3>
         {first_name} {last_name}
       </h3>
@@ -47,9 +57,10 @@ export const PersonRsvp: React.FC<Person> = (props) => {
         onChange={(e) =>
           handleRSVPChange(e.target.value as RSVP_Options)
         }
+        className="rsvp-select"
       >
         <option value={RSVP_Options.NO_RESPONSE} disabled>
-          {RSVP_Options.NO_RESPONSE}
+          RSVP
         </option>
         <option value={RSVP_Options.WILL_ATTEND}>
           Can&#39;t wait to celebrate!
@@ -79,6 +90,25 @@ export const PersonRsvp: React.FC<Person> = (props) => {
           </button>
         </article>
       )}
-    </>
+      {showConfetti && (
+        <Confetti
+          recycle={false}
+          width={width}
+          height={height}
+          confettiSource={{
+            x: width / 2,
+            y: height / 3,
+            w: 1,
+            h: 1
+          }}
+          onConfettiComplete={() => setShowConfetti(false)}
+          initialVelocityX={10}
+          initialVelocityY={20}
+          colors={["#9fad9f", "#5e2426"]}
+          numberOfPieces={400}
+          gravity={0.2}
+        />
+      )}
+    </article>
   );
 };

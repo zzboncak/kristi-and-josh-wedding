@@ -40,10 +40,7 @@ export const RSVP: React.FC = () => {
           value={keyword}
           onChange={(e) => setKeyword(e.target.value)}
         />
-        <button
-          disabled={keyword.length <= 2}
-          className="search-button"
-        >
+        <button disabled={keyword.length <= 2} className="button">
           Search your keyword
         </button>
       </form>
