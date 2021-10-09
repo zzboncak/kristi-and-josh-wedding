@@ -15,11 +15,11 @@
   background-color: rgb(255, 255, 255);
   border: none;
   display: block;
-  border-bottom: 0.3rem solid transparent;
+  border: 0.1rem solid #5e2426;
   transition: all 0.3s;
 }
 
-.search-button {
+.button {
   margin-top: 1rem;
   width: 60vw;
   max-width: 200px;
@@ -31,7 +31,7 @@
   transform: translateY(0rem);
 }
 
-.keyword-input:placeholder-shown + .search-button {
+.keyword-input:placeholder-shown + .button {
   opacity: 0;
   visibility: hidden;
   -webkit-transform: translateY(-4rem);

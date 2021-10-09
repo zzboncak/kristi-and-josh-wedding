@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { RouteComponentProps } from "react-router";
-import { Link } from "react-router-dom";
 import { Invite, Person } from "../types";
 import { fetchInviteAndPeople, updateInvite } from "../utilities";
 import { PersonRsvp } from "./Person";
+import "./InviteDetails.css";
 
 export const InviteDetails: React.FC<RouteComponentProps> = ({
   match
@@ -84,37 +84,48 @@ export const InviteDetails: React.FC<RouteComponentProps> = ({
           <PersonRsvp {...person} key={i} />
         ))}
       </article>
-      <label htmlFor="dietary_restrictions">
-        Any dietary restrictions we should be aware of?
-      </label>
-      <textarea
-        name="dietary_restrictions"
-        value={dietary_restrictions}
-        onChange={(e) => handleDietChange(e.target.value)}
-      ></textarea>
-      <button
-        onClick={() => handleUpdateDiet()}
-        disabled={!dietTouched}
-      >
-        Let us know
-      </button>
-      <br />
-      <label htmlFor="favorite_song">
-        What song will get you out on the dance floor?
-      </label>
-      <textarea
-        name="favorite_song"
-        value={favorite_song}
-        onChange={(e) => handleSongChange(e.target.value)}
-      ></textarea>
-      <button
-        onClick={() => handleUpdateSong()}
-        disabled={!songTouched}
-      >
-        Let us know
-      </button>
-      <br />
-      <Link to="/rsvp">Go back</Link>
+      <div className="family-questions">
+        <label
+          htmlFor="dietary_restrictions"
+          className="extra-question-label"
+        >
+          Any dietary restrictions we should be aware of?
+        </label>
+        <textarea
+          name="dietary_restrictions"
+          value={dietary_restrictions}
+          onChange={(e) => handleDietChange(e.target.value)}
+          className="textarea"
+        ></textarea>
+        <button
+          onClick={() => handleUpdateDiet()}
+          disabled={!dietTouched}
+          className="button"
+        >
+          Let us know
+        </button>
+        <br />
+        <label
+          htmlFor="favorite_song"
+          className="extra-question-label"
+        >
+          What song will get you out on the dance floor?
+        </label>
+        <textarea
+          name="favorite_song"
+          value={favorite_song}
+          onChange={(e) => handleSongChange(e.target.value)}
+          className="textarea"
+        ></textarea>
+        <button
+          onClick={() => handleUpdateSong()}
+          disabled={!songTouched}
+          className="button"
+        >
+          Let us know
+        </button>
+        <br />
+      </div>
     </>
   );
 };
