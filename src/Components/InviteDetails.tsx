@@ -4,6 +4,7 @@ import { Invite, Person } from "../types";
 import { fetchInviteAndPeople, updateInvite } from "../utilities";
 import { PersonRsvp } from "./Person";
 import "./InviteDetails.css";
+import { Loading } from "./Loading";
 
 export const InviteDetails: React.FC<RouteComponentProps> = ({
   match
@@ -16,6 +17,8 @@ export const InviteDetails: React.FC<RouteComponentProps> = ({
   const [dietTouched, setDietTouched] = useState<boolean>(false);
   const [favorite_song, setSong] = useState<string>("");
   const [songTouched, setSongTouched] = useState<boolean>(false);
+  const [loading, setLoading] = useState<boolean>(true);
+
   const { keyword } = match.params as { keyword: string };
   useEffect(() => {
     fetchInviteAndPeople(keyword).then(([invite, people]) => {
@@ -23,6 +26,7 @@ export const InviteDetails: React.FC<RouteComponentProps> = ({
       setPeople(people);
       setDiet(invite.dietary_restrictions ?? "");
       setSong(invite.favorite_song ?? "");
+      setLoading(false);
     });
   }, []);
 
@@ -79,53 +83,59 @@ export const InviteDetails: React.FC<RouteComponentProps> = ({
   }
   return (
     <>
-      <article>
-        {people?.map((person, i) => (
-          <PersonRsvp {...person} key={i} />
-        ))}
-      </article>
-      <div className="family-questions">
-        <label
-          htmlFor="dietary_restrictions"
-          className="extra-question-label"
-        >
-          Any dietary restrictions we should be aware of?
-        </label>
-        <textarea
-          name="dietary_restrictions"
-          value={dietary_restrictions}
-          onChange={(e) => handleDietChange(e.target.value)}
-          className="textarea"
-        ></textarea>
-        <button
-          onClick={() => handleUpdateDiet()}
-          disabled={!dietTouched}
-          className="button"
-        >
-          Let us know
-        </button>
-        <br />
-        <label
-          htmlFor="favorite_song"
-          className="extra-question-label"
-        >
-          What song will get you out on the dance floor?
-        </label>
-        <textarea
-          name="favorite_song"
-          value={favorite_song}
-          onChange={(e) => handleSongChange(e.target.value)}
-          className="textarea"
-        ></textarea>
-        <button
-          onClick={() => handleUpdateSong()}
-          disabled={!songTouched}
-          className="button"
-        >
-          Let us know
-        </button>
-        <br />
-      </div>
+      {loading ? (
+        <Loading />
+      ) : (
+        <>
+          <article>
+            {people?.map((person, i) => (
+              <PersonRsvp {...person} key={i} />
+            ))}
+          </article>
+          <div className="family-questions">
+            <label
+              htmlFor="dietary_restrictions"
+              className="extra-question-label"
+            >
+              Any dietary restrictions we should be aware of?
+            </label>
+            <textarea
+              name="dietary_restrictions"
+              value={dietary_restrictions}
+              onChange={(e) => handleDietChange(e.target.value)}
+              className="textarea"
+            ></textarea>
+            <button
+              onClick={() => handleUpdateDiet()}
+              disabled={!dietTouched}
+              className="button"
+            >
+              Let us know
+            </button>
+            <br />
+            <label
+              htmlFor="favorite_song"
+              className="extra-question-label"
+            >
+              What song will get you out on the dance floor?
+            </label>
+            <textarea
+              name="favorite_song"
+              value={favorite_song}
+              onChange={(e) => handleSongChange(e.target.value)}
+              className="textarea"
+            ></textarea>
+            <button
+              onClick={() => handleUpdateSong()}
+              disabled={!songTouched}
+              className="button"
+            >
+              Let us know
+            </button>
+            <br />
+          </div>
+        </>
+      )}
     </>
   );
 };
