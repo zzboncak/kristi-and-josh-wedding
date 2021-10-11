@@ -2,15 +2,18 @@ import React, { useState } from "react";
 import { API_ENDPOINT } from "../config";
 import { Invite } from "../types";
 import { InviteCard } from "./InviteCard";
+import { Loading } from "./Loading";
 import "./RSVP.css";
 
 export const RSVP: React.FC = () => {
   const [keyword, setKeyword] = useState<string>("");
   const [response, setResponse] = useState<Invite[]>([]);
+  const [loading, setLoading] = useState<boolean>(false);
 
   function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
-    // Fire request to server to find the family name
+
+    setLoading(true);
     fetch(`${API_ENDPOINT}/invites/${keyword.toLowerCase()}`)
       .then((res) => {
         if (!res.ok) {
@@ -21,6 +24,7 @@ export const RSVP: React.FC = () => {
       .then((data) => {
         setKeyword("");
         setResponse(data);
+        setLoading(false);
       })
       .catch((error) => {
         throw new Error(error);
@@ -44,6 +48,7 @@ export const RSVP: React.FC = () => {
           Search your keyword
         </button>
       </form>
+      {loading && <Loading />}
       {familiesToShow && (
         <section className="invite-cards">
           {response.map((family) => (
