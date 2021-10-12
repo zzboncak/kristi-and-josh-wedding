@@ -7,9 +7,34 @@ import Confetti from "react-confetti";
 import useWindowSize from "react-use/lib/useWindowSize";
 import Modal from "react-modal";
 
+Modal.setAppElement("#root");
+
+const customStyles: ReactModal.Styles = {
+  content: {
+    top: "50%",
+    left: "50%",
+    right: "auto",
+    bottom: "auto",
+    marginRight: "-50%",
+    width: "80vw",
+    maxWidth: "400px",
+    transform: "translate(-50%, -50%)",
+    borderRadius: "8px",
+    backgroundColor: "#9fad9f",
+    border: "1px solid black"
+  }
+};
+
 export const PersonRsvp: React.FC<Person> = (props) => {
   const [currentStatus, setCurrentStatus] = useState<Person>(props);
   const [showConfetti, setShowConfetti] = useState<boolean>(false);
+  const [firstModalVisible, setFirstModalVisible] = useState<boolean>(
+    false
+  );
+  const [
+    secondModalVisible,
+    setSecondModalVisible
+  ] = useState<boolean>(false);
   const {
     first_name,
     last_name,
@@ -25,27 +50,7 @@ export const PersonRsvp: React.FC<Person> = (props) => {
       rsvp: value
     };
     if (value === RSVP_Options.DECLINE) {
-      const rejection1 = window.confirm(
-        "Are you sure you don't want to come to our amazing wedding?"
-      );
-      if (rejection1) {
-        const rejection2 = window.confirm(
-          `Are you really, really sure you didn't mean to click "Can't wait to celebrate!"?`
-        );
-        if (rejection2) {
-          api<Person>(`${API_ENDPOINT}/people/update/${id}`, {
-            method: "PATCH",
-            headers: {
-              "content-type": "application/json"
-            },
-            body: JSON.stringify(updatedPerson)
-          }).then((response) => setCurrentStatus(response));
-        } else {
-          return;
-        }
-      } else {
-        return;
-      }
+      setFirstModalVisible(true);
     } else if (value === RSVP_Options.WILL_ATTEND) {
       api<Person>(`${API_ENDPOINT}/people/update/${id}`, {
         method: "PATCH",
@@ -67,6 +72,24 @@ export const PersonRsvp: React.FC<Person> = (props) => {
         "content-type": "application/json"
       },
       body: JSON.stringify({ extra_confirmed: value })
+    }).then((response) => setCurrentStatus(response));
+  }
+
+  function handleOpenSecondModal() {
+    setFirstModalVisible(false);
+    setSecondModalVisible(true);
+  }
+
+  function handleNegativeRSVP() {
+    api<Person>(`${API_ENDPOINT}/people/update/${id}`, {
+      method: "PATCH",
+      headers: {
+        "content-type": "application/json"
+      },
+      body: JSON.stringify({
+        ...currentStatus,
+        rsvp: RSVP_Options.DECLINE
+      })
     }).then((response) => setCurrentStatus(response));
   }
 
@@ -132,6 +155,56 @@ export const PersonRsvp: React.FC<Person> = (props) => {
           gravity={0.2}
         />
       )}
+      <Modal
+        isOpen={firstModalVisible}
+        onRequestClose={() => setFirstModalVisible(false)}
+        style={customStyles}
+      >
+        <h3>
+          Are you sure you do not want to come to our amazing wedding?
+        </h3>
+        <div className="modal-buttons">
+          <button
+            className="button"
+            onClick={() => handleOpenSecondModal()}
+          >
+            Sadly, I cannot come
+          </button>
+          <button
+            className="button"
+            onClick={() => setFirstModalVisible(false)}
+          >
+            Whoops, I meant to say yes!
+          </button>
+        </div>
+      </Modal>
+      <Modal
+        isOpen={secondModalVisible}
+        onRequestClose={() => setSecondModalVisible(false)}
+        style={customStyles}
+      >
+        <h3>
+          Are you really, really sure you didn&apos;t mean to click
+          &quot;Can&apos;t wait to celebrate!&quot;?
+        </h3>
+        <div className="modal-buttons">
+          <button
+            className="button"
+            onClick={() => {
+              handleNegativeRSVP();
+              setSecondModalVisible(false);
+            }}
+          >
+            Really, I cannot come, I am so sorry!
+          </button>
+          <button
+            className="button"
+            onClick={() => setSecondModalVisible(false)}
+          >
+            Whoops, I meant to say yes!
+          </button>
+        </div>
+      </Modal>
     </article>
   );
 };
