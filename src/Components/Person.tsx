@@ -5,6 +5,7 @@ import { api } from "../utilities";
 import "./Person.css";
 import Confetti from "react-confetti";
 import useWindowSize from "react-use/lib/useWindowSize";
+import Modal from "react-modal";
 
 export const PersonRsvp: React.FC<Person> = (props) => {
   const [currentStatus, setCurrentStatus] = useState<Person>(props);
@@ -23,18 +24,40 @@ export const PersonRsvp: React.FC<Person> = (props) => {
       ...currentStatus,
       rsvp: value
     };
-    api<Person>(`${API_ENDPOINT}/people/update/${id}`, {
-      method: "PATCH",
-      headers: {
-        "content-type": "application/json"
-      },
-      body: JSON.stringify(updatedPerson)
-    }).then((response) => {
-      setCurrentStatus(response);
-      if (response.rsvp === RSVP_Options.WILL_ATTEND) {
-        setShowConfetti(true);
+    if (value === RSVP_Options.DECLINE) {
+      const rejection1 = window.confirm(
+        "Are you sure you don't want to come to our amazing wedding?"
+      );
+      if (rejection1) {
+        const rejection2 = window.confirm(
+          `Are you really, really sure you didn't mean to click "Can't wait to celebrate!"?`
+        );
+        if (rejection2) {
+          api<Person>(`${API_ENDPOINT}/people/update/${id}`, {
+            method: "PATCH",
+            headers: {
+              "content-type": "application/json"
+            },
+            body: JSON.stringify(updatedPerson)
+          }).then((response) => setCurrentStatus(response));
+        } else {
+          return;
+        }
+      } else {
+        return;
       }
-    });
+    } else if (value === RSVP_Options.WILL_ATTEND) {
+      api<Person>(`${API_ENDPOINT}/people/update/${id}`, {
+        method: "PATCH",
+        headers: {
+          "content-type": "application/json"
+        },
+        body: JSON.stringify(updatedPerson)
+      }).then((response) => {
+        setCurrentStatus(response);
+        setShowConfetti(true);
+      });
+    }
   }
 
   function handleExtraChange(value: RSVP_Options) {
