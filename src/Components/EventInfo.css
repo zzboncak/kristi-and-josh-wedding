@@ -1,0 +1,8 @@
+.order-of-events {
+  display: grid;
+  margin: 0 auto;
+  width: 250px;
+  grid-template-columns: 175px 75px;
+  align-items: center;
+  text-align: left;
+}

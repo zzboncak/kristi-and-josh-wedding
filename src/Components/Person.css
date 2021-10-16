@@ -8,3 +8,24 @@
   border-radius: 8px;
   background-color: rgb(159, 173, 159, 0.5);
 }
+
+.modal-buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.ReactModal__Content,
+.modal-buttons .button {
+  font-family: "Lora";
+}
+
+.modal-buttons .button {
+  width: 105px;
+  height: auto;
+  padding: 5px;
+}
+
+.modal-buttons .button:hover {
+  cursor: pointer;
+}

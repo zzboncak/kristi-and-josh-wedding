@@ -35,6 +35,7 @@
 
 .front {
   margin-top: 30%;
+  transform: rotateX(0deg);
 }
 
 .back {
