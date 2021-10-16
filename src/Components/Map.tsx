@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/ban-ts-comment */
 import React from "react";
 import { GoogleAPI, GoogleApiWrapper, Map } from "google-maps-react";
 
@@ -22,6 +23,7 @@ export class MapContainer extends React.Component<{
           lat: 42.10495,
           lng: -88.28439
         }}
+        // @ts-ignore
         zoom={16}
         streetViewControl={false}
         fullscreenControl={false}
