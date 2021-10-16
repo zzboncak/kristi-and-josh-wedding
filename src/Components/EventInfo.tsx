@@ -1,5 +1,6 @@
 import React from "react";
 import Map from "./Map";
+import "./EventInfo.css";
 
 export const EventInfo: React.FC = () => {
   return (
@@ -10,19 +11,20 @@ export const EventInfo: React.FC = () => {
         The Brix on The Fox <br /> 260 S. Washington St <br />{" "}
         Carpentersville, IL 60110
       </p>
-      <Map />
-
       <p>
         The Two-Sixty entrance
         <br />
         There is plenty of parking!
       </p>
+      <Map />
 
       <h3>Order of events</h3>
-      <p>Ceremony 2:30pm</p>
-      <p>Cocktail hour 3:30pm</p>
-      <p>Supper 5:00pm</p>
-      <p>Dessert and Dancing 6:00pm</p>
+      <div className="order-of-events">
+        <p>Ceremony</p> <p>2:30pm</p>
+        <p>Cocktail hour</p> <p>3:30pm</p>
+        <p>Supper</p> <p>5:00pm</p>
+        <p>Dessert and Dancing</p> <p>6:00pm</p>
+      </div>
 
       <h3>Accommodations</h3>
       <p>
