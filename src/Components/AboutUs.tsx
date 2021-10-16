@@ -4,8 +4,10 @@ import "./AboutUs.css";
 export const AboutUs: React.FC = () => {
   return (
     <main>
-      <h1 className="hero-header">We&apos;re getting married!</h1>
-      <sub>#hellyeahgeson</sub>
+      <div className="image-container">
+        <h1 className="hero-header">We&apos;re getting married!</h1>
+        <sub>#hellyeahgeson</sub>
+      </div>
 
       <h2 className="about-us-header">About Us</h2>
       <p className="about-us-text">
