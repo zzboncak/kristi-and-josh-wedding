@@ -1,3 +1,8 @@
+.event-section,
+.accommodation {
+  margin: 40px 0;
+}
+
 .order-of-events {
   display: grid;
   margin: 0 auto;
@@ -5,4 +10,16 @@
   grid-template-columns: 175px 75px;
   align-items: center;
   text-align: left;
+}
+
+.things-to-do {
+  list-style-type: none;
+  position: relative;
+  left: -20px;
+  margin: 20px;
+}
+
+.things-to-do > *,
+.event-section .link {
+  text-transform: capitalize;
 }
