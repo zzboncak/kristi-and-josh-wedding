@@ -14,14 +14,11 @@ const styles = {
 
 export const FallingEmojis: React.FC<{ emoji: string }> = ({
   emoji
-}): React.DetailedReactHTMLElement<
-  {
-    className: string;
-  },
-  HTMLElement
-> => {
-  const emojiArray = [emoji, emoji, emoji, emoji, emoji];
-  const order = [0, 3, 1, 2, 4];
+}) => {
+  const emojiArray = [...Array(5).fill(emoji)];
+  const order = Array.from({ length: 5 }, (_, i) => i).sort(
+    () => Math.random() - 0.5
+  );
   const animations = [
     styles.emojiAnimation0,
     styles.emojiAnimation1,
@@ -29,20 +26,16 @@ export const FallingEmojis: React.FC<{ emoji: string }> = ({
     styles.emojiAnimation3,
     styles.emojiAnimation4
   ];
-  return React.createElement(
-    "div",
-    {
-      className: styles.FallingEmojis
-    },
-    emojiArray.map(function (emojiElement, i) {
-      return React.createElement(
-        "span",
-        {
-          key: i,
-          className: [styles.emoji, animations[order[i]]].join(" ")
-        },
-        emojiElement
-      );
-    })
+  return (
+    <div className="emoji-container">
+      {emojiArray.map((emoji, i) => {
+        const classes = `emoji ${animations[order[i]]}`;
+        return (
+          <span key={i} className={classes}>
+            {emoji}
+          </span>
+        );
+      })}
+    </div>
   );
 };
