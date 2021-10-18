@@ -2,25 +2,24 @@ import React from "react";
 import "./FallingEmojis.css";
 
 const styles = {
-  FallingEmojis: "_Jiv79",
-  emoji: "_1PZEU",
-  emojiAnimation0: "_8xRe2",
-  float: "_3oO7A",
-  emojiAnimation1: "_3xOMG",
-  emojiAnimation2: "_lA6Ei",
-  emojiAnimation3: "_2fsNE",
-  emojiAnimation4: "_2q_6E"
+  FallingEmojis: "emoji-container",
+  emoji: "emoji",
+  emojiAnimation0: "animation1",
+  float: "squiggle_fall",
+  emojiAnimation1: "animation2",
+  emojiAnimation2: "animation3",
+  emojiAnimation3: "animation4",
+  emojiAnimation4: "animation5"
 };
 
-const FallingEmojis = function FallingEmojis(_ref: {
-  emoji: string;
+export const FallingEmojis: React.FC<{ emoji: string }> = ({
+  emoji
 }): React.DetailedReactHTMLElement<
   {
     className: string;
   },
   HTMLElement
-> {
-  const emoji = _ref.emoji;
+> => {
   const emojiArray = [emoji, emoji, emoji, emoji, emoji];
   const order = [0, 3, 1, 2, 4];
   const animations = [
@@ -47,6 +46,3 @@ const FallingEmojis = function FallingEmojis(_ref: {
     })
   );
 };
-
-export { FallingEmojis };
-//# sourceMappingURL=index.modern.js.map
