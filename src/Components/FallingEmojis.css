@@ -1,0 +1,113 @@
+._Jiv79 {
+  position: fixed;
+  pointer-events: none;
+  top: 0px;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: space-around;
+  z-index: 9;
+}
+._Jiv79 ._1PZEU {
+  position: relative;
+  font-size: 36px;
+  opacity: 0;
+}
+._Jiv79 ._8xRe2 {
+  -webkit-animation: _3oO7A 6s ease-in-out;
+  animation: _3oO7A 6s ease-in-out;
+  -webkit-animation-delay: 0;
+  animation-delay: 0;
+  -webkit-animation-iteration-count: 1;
+  animation-iteration-count: 1;
+}
+._Jiv79 ._3xOMG {
+  -webkit-animation: _3oO7A 8s ease-in-out;
+  animation: _3oO7A 8s ease-in-out;
+  -webkit-animation-delay: 1;
+  animation-delay: 1;
+  -webkit-animation-iteration-count: 1;
+  animation-iteration-count: 1;
+}
+._Jiv79 ._lA6Ei {
+  -webkit-animation: _3oO7A 10s ease-in-out;
+  animation: _3oO7A 10s ease-in-out;
+  -webkit-animation-delay: 2;
+  animation-delay: 2;
+  -webkit-animation-iteration-count: 1;
+  animation-iteration-count: 1;
+}
+._Jiv79 ._2fsNE {
+  -webkit-animation: _3oO7A 12s ease-in-out;
+  animation: _3oO7A 12s ease-in-out;
+  -webkit-animation-delay: 3;
+  animation-delay: 3;
+  -webkit-animation-iteration-count: 1;
+  animation-iteration-count: 1;
+}
+._Jiv79 ._2q_6E {
+  -webkit-animation: _3oO7A 14s ease-in-out;
+  animation: _3oO7A 14s ease-in-out;
+  -webkit-animation-delay: 4;
+  animation-delay: 4;
+  -webkit-animation-iteration-count: 1;
+  animation-iteration-count: 1;
+}
+@-webkit-keyframes _3oO7A {
+  0% {
+    opacity: 0;
+    top: -10%;
+    left: 0%;
+  }
+  25% {
+    opacity: 0.8;
+    left: 5%;
+  }
+  50% {
+    opacity: 1;
+    left: 0%;
+  }
+  75% {
+    opacity: 0.2;
+    left: 5%;
+  }
+  100% {
+    top: 100%;
+    left: 0%;
+    opacity: 0;
+  }
+}
+@keyframes _3oO7A {
+  0% {
+    opacity: 0;
+    top: -10%;
+    left: 0%;
+  }
+  25% {
+    opacity: 0.8;
+    left: 5%;
+  }
+  50% {
+    opacity: 1;
+    left: 0%;
+  }
+  75% {
+    opacity: 0.2;
+    left: 5%;
+  }
+  100% {
+    top: 100%;
+    left: 0%;
+    opacity: 0;
+  }
+}
+@media (max-width: 650px) {
+  ._Jiv79 ._1PZEU {
+    font-size: 28px;
+  }
+}
+@media only screen and (max-width: 450px) {
+  ._Jiv79 ._1PZEU {
+    font-size: 20px;
+  }
+}

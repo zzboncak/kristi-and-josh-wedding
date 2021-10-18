@@ -6,6 +6,7 @@ import "./Person.css";
 import Confetti from "react-confetti";
 import useWindowSize from "react-use/lib/useWindowSize";
 import Modal from "react-modal";
+import { FallingEmojis } from "./FallingEmojis";
 
 Modal.setAppElement("#root");
 
@@ -35,6 +36,7 @@ export const PersonRsvp: React.FC<Person> = (props) => {
     secondModalVisible,
     setSecondModalVisible
   ] = useState<boolean>(false);
+  const [seeEmojis, setEmojis] = useState<boolean>(false);
   const {
     first_name,
     last_name,
@@ -90,11 +92,15 @@ export const PersonRsvp: React.FC<Person> = (props) => {
         ...currentStatus,
         rsvp: RSVP_Options.DECLINE
       })
-    }).then((response) => setCurrentStatus(response));
+    }).then((response) => {
+      setCurrentStatus(response);
+      setEmojis(true);
+    });
   }
 
   return (
     <article className="person">
+      {seeEmojis && <FallingEmojis emoji={"😭"} />}
       <h3>
         {first_name} {last_name}
       </h3>
