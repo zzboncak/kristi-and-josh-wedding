@@ -10,7 +10,7 @@ import { FallingEmojis } from "./FallingEmojis";
 
 Modal.setAppElement("#root");
 
-const customStyles: ReactModal.Styles = {
+export const modalStyles: ReactModal.Styles = {
   content: {
     top: "50%",
     left: "50%",
@@ -21,8 +21,7 @@ const customStyles: ReactModal.Styles = {
     maxWidth: "400px",
     transform: "translate(-50%, -50%)",
     borderRadius: "8px",
-    backgroundColor: "#9fad9f",
-    border: "1px solid black"
+    backgroundColor: "#9fad9f"
   }
 };
 
@@ -164,7 +163,7 @@ export const PersonRsvp: React.FC<Person> = (props) => {
       <Modal
         isOpen={firstModalVisible}
         onRequestClose={() => setFirstModalVisible(false)}
-        style={customStyles}
+        style={modalStyles}
       >
         <h3>
           Are you sure you do not want to come to our amazing wedding?
@@ -187,7 +186,7 @@ export const PersonRsvp: React.FC<Person> = (props) => {
       <Modal
         isOpen={secondModalVisible}
         onRequestClose={() => setSecondModalVisible(false)}
-        style={customStyles}
+        style={modalStyles}
       >
         <h3>
           Are you really, really sure you didn&apos;t mean to click
