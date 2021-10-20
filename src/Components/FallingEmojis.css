@@ -1,4 +1,4 @@
-._Jiv79 {
+.emoji-container {
   position: fixed;
   pointer-events: none;
   top: 0px;
@@ -8,52 +8,52 @@
   justify-content: space-around;
   z-index: 9;
 }
-._Jiv79 ._1PZEU {
+.emoji-container .emoji {
   position: relative;
   font-size: 36px;
   opacity: 0;
 }
-._Jiv79 ._8xRe2 {
-  -webkit-animation: _3oO7A 6s ease-in-out;
-  animation: _3oO7A 6s ease-in-out;
+.emoji-container .animation1 {
+  -webkit-animation: squiggle_fall 3s ease-in-out;
+  animation: squiggle_fall 3s ease-in-out;
   -webkit-animation-delay: 0;
   animation-delay: 0;
   -webkit-animation-iteration-count: 1;
   animation-iteration-count: 1;
 }
-._Jiv79 ._3xOMG {
-  -webkit-animation: _3oO7A 8s ease-in-out;
-  animation: _3oO7A 8s ease-in-out;
+.emoji-container .animation2 {
+  -webkit-animation: squiggle_fall 4s ease-in-out;
+  animation: squiggle_fall 4s ease-in-out;
+  -webkit-animation-delay: 0.5;
+  animation-delay: 0.5;
+  -webkit-animation-iteration-count: 1;
+  animation-iteration-count: 1;
+}
+.emoji-container .animation3 {
+  -webkit-animation: squiggle_fall 5s ease-in-out;
+  animation: squiggle_fall 5s ease-in-out;
   -webkit-animation-delay: 1;
   animation-delay: 1;
   -webkit-animation-iteration-count: 1;
   animation-iteration-count: 1;
 }
-._Jiv79 ._lA6Ei {
-  -webkit-animation: _3oO7A 10s ease-in-out;
-  animation: _3oO7A 10s ease-in-out;
+.emoji-container .animation4 {
+  -webkit-animation: squiggle_fall 6s ease-in-out;
+  animation: squiggle_fall 6s ease-in-out;
+  -webkit-animation-delay: 1.5;
+  animation-delay: 1.5;
+  -webkit-animation-iteration-count: 1;
+  animation-iteration-count: 1;
+}
+.emoji-container .animation5 {
+  -webkit-animation: squiggle_fall 7s ease-in-out;
+  animation: squiggle_fall 7s ease-in-out;
   -webkit-animation-delay: 2;
   animation-delay: 2;
   -webkit-animation-iteration-count: 1;
   animation-iteration-count: 1;
 }
-._Jiv79 ._2fsNE {
-  -webkit-animation: _3oO7A 12s ease-in-out;
-  animation: _3oO7A 12s ease-in-out;
-  -webkit-animation-delay: 3;
-  animation-delay: 3;
-  -webkit-animation-iteration-count: 1;
-  animation-iteration-count: 1;
-}
-._Jiv79 ._2q_6E {
-  -webkit-animation: _3oO7A 14s ease-in-out;
-  animation: _3oO7A 14s ease-in-out;
-  -webkit-animation-delay: 4;
-  animation-delay: 4;
-  -webkit-animation-iteration-count: 1;
-  animation-iteration-count: 1;
-}
-@-webkit-keyframes _3oO7A {
+@-webkit-keyframes squiggle_fall {
   0% {
     opacity: 0;
     top: -10%;
@@ -77,7 +77,7 @@
     opacity: 0;
   }
 }
-@keyframes _3oO7A {
+@keyframes squiggle_fall {
   0% {
     opacity: 0;
     top: -10%;
@@ -102,12 +102,12 @@
   }
 }
 @media (max-width: 650px) {
-  ._Jiv79 ._1PZEU {
+  .emoji-container .emoji {
     font-size: 28px;
   }
 }
 @media only screen and (max-width: 450px) {
-  ._Jiv79 ._1PZEU {
-    font-size: 20px;
+  .emoji-container .emoji {
+    font-size: 24px;
   }
 }

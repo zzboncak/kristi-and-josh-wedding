@@ -2,9 +2,10 @@ import React, { useEffect, useState } from "react";
 import { RouteComponentProps } from "react-router";
 import { Invite, Person } from "../types";
 import { fetchInviteAndPeople, updateInvite } from "../utilities";
-import { PersonRsvp } from "./Person";
+import { modalStyles, PersonRsvp } from "./Person";
 import "./InviteDetails.css";
 import { Loading } from "./Loading";
+import Modal from "react-modal";
 
 export const InviteDetails: React.FC<RouteComponentProps> = ({
   match
@@ -18,6 +19,7 @@ export const InviteDetails: React.FC<RouteComponentProps> = ({
   const [favorite_song, setSong] = useState<string>("");
   const [songTouched, setSongTouched] = useState<boolean>(false);
   const [loading, setLoading] = useState<boolean>(true);
+  const [isModalVisible, setModalVisible] = useState<boolean>(false);
 
   const { keyword } = match.params as { keyword: string };
   useEffect(() => {
@@ -50,7 +52,10 @@ export const InviteDetails: React.FC<RouteComponentProps> = ({
         updateInvite(invite.id, {
           ...invite,
           dietary_restrictions
-        }).then((invite) => setInvite(invite));
+        }).then((invite) => {
+          setInvite(invite);
+          setModalVisible(true);
+        });
       } else if (dietary_restrictions.length === 0) {
         updateInvite(invite.id, {
           ...invite,
@@ -58,6 +63,7 @@ export const InviteDetails: React.FC<RouteComponentProps> = ({
         }).then((invite) => {
           setInvite(invite);
           setDietTouched(false);
+          setModalVisible(true);
         });
       }
     }
@@ -69,7 +75,10 @@ export const InviteDetails: React.FC<RouteComponentProps> = ({
         updateInvite(invite.id, {
           ...invite,
           favorite_song
-        }).then((invite) => setInvite(invite));
+        }).then((invite) => {
+          setInvite(invite);
+          setModalVisible(true);
+        });
       } else if (favorite_song.length === 0) {
         updateInvite(invite.id, {
           ...invite,
@@ -77,16 +86,30 @@ export const InviteDetails: React.FC<RouteComponentProps> = ({
         }).then((invite) => {
           setInvite(invite);
           setSongTouched(false);
+          setModalVisible(true);
         });
       }
     }
   }
+
+  useEffect(() => {
+    if (isModalVisible) {
+      setTimeout(() => {
+        setModalVisible(false);
+      }, 2000);
+    }
+  }, [isModalVisible]);
   return (
     <>
       {loading ? (
         <Loading />
       ) : (
         <>
+          <h4 className="helper-text">
+            Let us know if you&apos;re able to celebrate with us by
+            simply changing your RSVP Status. All answers on this page
+            are submitted to us when you change it!
+          </h4>
           <article>
             {people?.map((person, i) => (
               <PersonRsvp {...person} key={i} />
@@ -134,6 +157,15 @@ export const InviteDetails: React.FC<RouteComponentProps> = ({
             </button>
             <br />
           </div>
+          <Modal
+            isOpen={isModalVisible}
+            onRequestClose={() => setModalVisible(false)}
+            style={modalStyles}
+          >
+            <h2>
+              Thanks for letting us know! Your request has been noted.
+            </h2>
+          </Modal>
         </>
       )}
     </>

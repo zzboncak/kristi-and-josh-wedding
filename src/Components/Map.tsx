@@ -1,6 +1,18 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
 import React from "react";
-import { GoogleAPI, GoogleApiWrapper, Map } from "google-maps-react";
+import {
+  GoogleAPI,
+  GoogleApiWrapper,
+  Map,
+  Marker
+} from "google-maps-react";
+
+/** pins to add
+ * First Date
+ * Engagement Spot
+ * Where they almost got arrested
+ * House
+ */
 
 export class MapContainer extends React.Component<{
   google: GoogleAPI;
@@ -27,7 +39,14 @@ export class MapContainer extends React.Component<{
         zoom={16}
         streetViewControl={false}
         fullscreenControl={false}
-      ></Map>
+      >
+        {/** Wedding Venue */}
+        <Marker
+          mapCenter={{ lat: 42.10495, lng: -88.28439 }}
+          // @ts-ignore
+          title="This is where our awesome wedding is taking place"
+        ></Marker>
+      </Map>
     );
   }
 }
