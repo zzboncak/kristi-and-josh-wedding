@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { API_ENDPOINT } from "../config";
 import { Person, RSVP_Options } from "../types";
 import { api } from "../utilities";
@@ -36,6 +36,10 @@ export const PersonRsvp: React.FC<Person> = (props) => {
     setSecondModalVisible
   ] = useState<boolean>(false);
   const [seeEmojis, setEmojis] = useState<boolean>(false);
+  const [
+    isSuccessModalVisible,
+    setSuccessModalVisible
+  ] = useState<boolean>(false);
   const {
     first_name,
     last_name,
@@ -44,6 +48,22 @@ export const PersonRsvp: React.FC<Person> = (props) => {
     allowed_extra
   } = currentStatus;
   const { width, height } = useWindowSize();
+
+  useEffect(() => {
+    if (seeEmojis) {
+      setTimeout(() => {
+        setEmojis(false);
+      }, 4000);
+    }
+  }, [seeEmojis]);
+
+  useEffect(() => {
+    if (isSuccessModalVisible) {
+      setTimeout(() => {
+        setSuccessModalVisible(false);
+      }, 3000);
+    }
+  }, [isSuccessModalVisible]);
 
   function handleRSVPChange(value: RSVP_Options) {
     const updatedPerson = {
@@ -152,7 +172,10 @@ export const PersonRsvp: React.FC<Person> = (props) => {
             w: 1,
             h: 1
           }}
-          onConfettiComplete={() => setShowConfetti(false)}
+          onConfettiComplete={() => {
+            setShowConfetti(false);
+            setSuccessModalVisible(true);
+          }}
           initialVelocityX={10}
           initialVelocityY={20}
           colors={["#9fad9f", "#5e2426"]}
@@ -209,6 +232,20 @@ export const PersonRsvp: React.FC<Person> = (props) => {
             Whoops, I meant to say yes!
           </button>
         </div>
+      </Modal>
+      <Modal
+        isOpen={seeEmojis}
+        style={modalStyles}
+        onRequestClose={() => setEmojis(false)}
+      >
+        <h2>We&apos;re sorry we&apos;ll miss you!</h2>
+      </Modal>
+      <Modal
+        isOpen={isSuccessModalVisible}
+        style={modalStyles}
+        onRequestClose={() => setSuccessModalVisible(false)}
+      >
+        <h2>We&apos;re so glad you&apos;re coming!</h2>
       </Modal>
     </article>
   );
