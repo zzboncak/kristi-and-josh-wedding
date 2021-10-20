@@ -1,9 +1,56 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./AboutUs.css";
 
+const weddingEpochTime = 1641760200000;
+const secondsInADay = 86400;
+const secondsInAnHour = 3600;
+const secondsInAMinute = 60;
+
 export const AboutUs: React.FC = () => {
+  const initialTimeLeft = Math.floor(
+    (weddingEpochTime - Date.now()) / 1000
+  );
+  const [countdown, setCountdown] = useState<number>(initialTimeLeft);
+
+  const daysLeft = Math.floor(countdown / secondsInADay);
+
+  const hoursLeft = Math.floor(
+    (countdown - daysLeft * secondsInADay) / secondsInAnHour
+  );
+
+  const minutesLeft = Math.floor(
+    (countdown -
+      daysLeft * secondsInADay -
+      hoursLeft * secondsInAnHour) /
+      secondsInAMinute
+  );
+
+  const secondsLeft = Math.floor(
+    countdown -
+      daysLeft * secondsInADay -
+      hoursLeft * secondsInAnHour -
+      minutesLeft * secondsInAMinute
+  );
+
+  useEffect(() => {
+    setInterval(() => {
+      const newTimeLeft = Math.floor(
+        (weddingEpochTime - Date.now()) / 1000
+      );
+      setCountdown(newTimeLeft);
+    }, 1000);
+  });
+
   return (
     <main>
+      <div className="countdown">
+        <p>
+          {daysLeft} days {hoursLeft} hours {minutesLeft} minutes{" "}
+          {secondsLeft} seconds
+          <br />
+          and counting
+        </p>
+      </div>
       <div className="image-container">
         <h1 className="hero-header">We&apos;re getting married!</h1>
         <sub>#hellyeahgeson</sub>
