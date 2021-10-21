@@ -35,8 +35,8 @@
 .back {
   transform: rotateY(180deg);
   text-decoration: none;
-  line-height: 150px;
-  white-space: nowrap;
+  margin-top: 55px;
+  padding: 0 10px;
 }
 
 .back:visited,
