@@ -34,7 +34,7 @@ export const RSVP: React.FC = () => {
 
   return (
     <>
-      <h2>Did you get an invite?</h2>
+      <h2 className="header">Enter your code here</h2>
       <form onSubmit={(e) => handleSubmit(e)}>
         <input
           type="text"
@@ -45,7 +45,7 @@ export const RSVP: React.FC = () => {
           onChange={(e) => setKeyword(e.target.value)}
         />
         <button
-          disabled={keyword.length <= 2 || loading}
+          disabled={keyword.length <= 1 || loading}
           className="button"
         >
           Search your keyword

@@ -4,7 +4,7 @@ import "./Registry.css";
 export const Registry: React.FC = () => {
   return (
     <section>
-      <h2>
+      <h2 className="header">
         Help us fill our <i className="fas fa-home"></i>
       </h2>
       <div className="card-container">

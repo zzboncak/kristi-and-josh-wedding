@@ -6,7 +6,7 @@ export const EventInfo: React.FC = () => {
   return (
     <section>
       <article className="event-section">
-        <h3>Location</h3>
+        <h3 className="event-info-header header">Location</h3>
         <p>
           The ceremony and reception will be held in the same space
         </p>
@@ -23,7 +23,7 @@ export const EventInfo: React.FC = () => {
       </article>
 
       <article className="event-section">
-        <h3>Order of events</h3>
+        <h3 className="event-info-header header">Order of events</h3>
         <div className="order-of-events">
           <p>Ceremony</p> <p>2:30pm</p>
           <p>Cocktail hour</p> <p>3:30pm</p>
@@ -33,7 +33,7 @@ export const EventInfo: React.FC = () => {
       </article>
 
       <article className="event-section">
-        <h3>Accommodations</h3>
+        <h3 className="event-info-header header">Accommodations</h3>
         <div className="accommodation">
           <p>
             <i>Closer to the venue</i>
@@ -62,7 +62,7 @@ export const EventInfo: React.FC = () => {
       </article>
 
       <article className="event-section">
-        <h3>Things to do</h3>
+        <h3 className="event-info-header header">Things to do</h3>
         <h4>Downtown Areas</h4>
         <ul>
           <li className="things-to-do">

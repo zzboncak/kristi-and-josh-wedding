@@ -52,11 +52,13 @@ export const AboutUs: React.FC = () => {
         </p>
       </div>
       <div className="image-container">
-        <h1 className="hero-header">We&apos;re getting married!</h1>
+        <h1 className="hero-header header">
+          We&apos;re getting married!
+        </h1>
         <sub>#hellyeahgeson</sub>
       </div>
 
-      <h2 className="about-us-header">About Us</h2>
+      <h2 className="about-us-header header">About Us</h2>
       <p className="about-us-text">
         <i>How we met:</i> When the world paused, things got a little
         boring during the COVID-19 pandemic! But that didn&apos;t stop
