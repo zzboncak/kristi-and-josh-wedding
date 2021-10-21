@@ -10,7 +10,7 @@ export const InviteCard: React.FC<Invite> = ({
 }) => {
   return (
     <Link to={`/rsvp/${keyword}`}>
-      The {head_of_house} {family_name} family
+      {head_of_house} {family_name}
     </Link>
   );
 };

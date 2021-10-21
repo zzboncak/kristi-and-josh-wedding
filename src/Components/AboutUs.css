@@ -1,18 +1,25 @@
 .about-us-header {
-  margin-top: 10vh;
+  margin: 10vh 0;
+}
+
+.about-us-mini-header {
+  font-size: 20px;
+  margin: 0;
+  line-height: 2em;
 }
 
 .about-us-text {
   max-width: 400px;
   margin: 20px auto;
   text-align: left;
-  padding: 20px;
+  padding: 0 20px;
   font-weight: 450;
 }
 
 .hero-header {
   padding-top: 40px;
   font-family: Brittany;
+  font-size: 40px;
 }
 
 .footer {

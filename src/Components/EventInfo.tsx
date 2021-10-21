@@ -1,14 +1,16 @@
 import React from "react";
 import Map from "./Map";
 import "./EventInfo.css";
+import { FlipCard } from "./FlipCard";
 
 export const EventInfo: React.FC = () => {
   return (
     <section>
       <article className="event-section">
-        <h3>Location</h3>
+        <h3 className="event-info-header header">Location</h3>
         <p>
-          The ceremony and reception will be held in the same space
+          The ceremony and reception will
+          <br /> be held in the same space
         </p>
         <p>
           The Brix on The Fox <br /> 260 S. Washington St <br />{" "}
@@ -23,7 +25,7 @@ export const EventInfo: React.FC = () => {
       </article>
 
       <article className="event-section">
-        <h3>Order of events</h3>
+        <h3 className="event-info-header header">Order of Events</h3>
         <div className="order-of-events">
           <p>Ceremony</p> <p>2:30pm</p>
           <p>Cocktail hour</p> <p>3:30pm</p>
@@ -33,36 +35,21 @@ export const EventInfo: React.FC = () => {
       </article>
 
       <article className="event-section">
-        <h3>Accommodations</h3>
-        <div className="accommodation">
-          <p>
-            <i>Closer to the venue</i>
-          </p>
-          <p>
-            <a
-              href="https://be.synxis.com/?Hotel=32405&Chain=5157&arrive=1/8/2022&depart=1/10/2022&adult=1&child=0&group=2201ZBONCA"
-              target="_blank"
-              rel="noreferrer"
-              className="link"
-            >
-              Sonesta
-            </a>
-          </p>
-          <p>Shuttle to venue is available</p>
-        </div>
-
-        <div className="accommodation">
-          <p>
-            <i>Closer to the Zboncak&apos;s</i>
-          </p>
-          <p>
-            <a>Spring Hill</a>
-          </p>
-        </div>
+        <h3 className="event-info-header header">Accommodations</h3>
+        <FlipCard
+          front="Sonesta"
+          back={`Closer to the venue and shuttle available`}
+          link="https://be.synxis.com/?Hotel=32405&Chain=5157&arrive=1/8/2022&depart=1/10/2022&adult=1&child=0&group=2201ZBONCA"
+        />
+        <FlipCard
+          front="Spring Hill"
+          back="Closer to the Zboncak's"
+          link="https://be.synxis.com/?Hotel=32405&Chain=5157&arrive=1/8/2022&depart=1/10/2022&adult=1&child=0&group=2201ZBONCA"
+        />
       </article>
 
       <article className="event-section">
-        <h3>Things to do</h3>
+        <h3 className="event-info-header header">Things to Do</h3>
         <h4>Downtown Areas</h4>
         <ul>
           <li className="things-to-do">
