@@ -2,7 +2,7 @@
   perspective: 700;
 }
 
-.registry-item {
+.item {
   position: relative;
   margin: 40px 0;
   border-radius: 8px;
@@ -45,6 +45,6 @@
   color: black;
 }
 
-.registry-item:hover {
+.item:hover {
   transform: rotateY(180deg);
 }

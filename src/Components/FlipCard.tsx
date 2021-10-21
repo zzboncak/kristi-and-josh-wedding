@@ -8,7 +8,7 @@ export const FlipCard: React.FC<{
 }> = ({ front, back, link }) => {
   return (
     <div className="card-container">
-      <div className="registry-item">
+      <div className="item">
         <div className="front">
           <span>{front}</span>
         </div>
