@@ -37,3 +37,7 @@
   -webkit-transform: translateY(-4rem);
   transform: translateY(-4rem);
 }
+
+.no-results {
+  padding: 0 60px;
+}

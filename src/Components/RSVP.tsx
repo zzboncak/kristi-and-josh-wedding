@@ -9,11 +9,13 @@ export const RSVP: React.FC = () => {
   const [keyword, setKeyword] = useState<string>("");
   const [response, setResponse] = useState<Invite[]>([]);
   const [loading, setLoading] = useState<boolean>(false);
+  const [fetched, setFetched] = useState<boolean>(false);
 
   function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
 
     setLoading(true);
+    setFetched(false);
     fetch(`${API_ENDPOINT}/invites/${keyword.toLowerCase()}`)
       .then((res) => {
         if (!res.ok) {
@@ -25,6 +27,7 @@ export const RSVP: React.FC = () => {
         setKeyword("");
         setResponse(data);
         setLoading(false);
+        setFetched(true);
       })
       .catch((error) => {
         throw new Error(error);
@@ -58,6 +61,12 @@ export const RSVP: React.FC = () => {
             <InviteCard {...family} key={family.id} />
           ))}
         </section>
+      )}
+      {fetched && !familiesToShow && (
+        <p className="no-results">
+          No results found for that search. Please check the code on
+          your invite and try again.
+        </p>
       )}
     </>
   );
