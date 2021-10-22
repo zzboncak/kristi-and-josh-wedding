@@ -44,7 +44,7 @@ export const EventInfo: React.FC = () => {
         <FlipCard
           front="Spring Hill"
           back="Closer to the Zboncak's"
-          link="https://be.synxis.com/?Hotel=32405&Chain=5157&arrive=1/8/2022&depart=1/10/2022&adult=1&child=0&group=2201ZBONCA"
+          link="https://www.marriott.com/events/start.mi?id=1634860946842&key=GRP"
         />
       </article>
 
