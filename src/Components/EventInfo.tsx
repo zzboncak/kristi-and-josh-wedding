@@ -142,12 +142,46 @@ export const EventInfo: React.FC = () => {
           </li>
           <li className="things-to-do">
             <a
-              href="http://www.countyfarmbagels.com/index.html"
+              href="https://www.sparrowcoffee.com/naperville/"
               target="_blank"
               rel="noreferrer"
               className="link things-to-do-link"
             >
-              County Farm Bagels
+              Sparrow Coffee
+            </a>
+          </li>
+        </ul>
+
+        <h4>Extras</h4>
+        <ul>
+          <li className="things-to-do">
+            <a
+              href="https://topgolf.com/us/naperville/"
+              target="_blank"
+              rel="noreferrer"
+              className="link things-to-do-link"
+            >
+              Top Golf in Naperville
+            </a>
+          </li>
+          <li className="things-to-do">
+            <a
+              href="https://metra.com"
+              target="_blank"
+              rel="noreferrer"
+              className="link things-to-do-link"
+            >
+              Take the metra into the city
+            </a>
+          </li>
+          <li className="things-to-do">
+            <a
+              href="https://pinstripes.com/oak-brook/"
+              target="_blank"
+              rel="noreferrer"
+              className="link things-to-do-link"
+            >
+              Pinstripes in Oak Brook
             </a>
           </li>
         </ul>
