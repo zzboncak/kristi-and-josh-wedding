@@ -36,6 +36,7 @@ export const EventInfo: React.FC = () => {
 
       <article className="event-section">
         <h3 className="event-info-header header">Accommodations</h3>
+        <h5>Group discount is already applied through these links</h5>
         <FlipCard
           front="Sonesta"
           back={`Closer to the venue and shuttle available`}
