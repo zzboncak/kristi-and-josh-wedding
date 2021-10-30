@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "./AboutUs.css";
-import { ZZFooter } from "./ZZFooter/ZZFooter";
+import { ZZFooter } from "../ZZFooter/ZZFooter";
 
 const weddingEpochTime = 1641760200000;
 const secondsInADay = 86400;
