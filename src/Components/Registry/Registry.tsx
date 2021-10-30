@@ -1,10 +1,11 @@
 import React from "react";
 import { FlipCard } from "../FlipCard/FlipCard";
+import { ZZFooter } from "../ZZFooter/ZZFooter";
 import "./Registry.css";
 
 export const Registry: React.FC = () => {
   return (
-    <section>
+    <section className="registry-list">
       <h2 className="header">
         Help us fill our <i className="fas fa-home"></i>
       </h2>
@@ -18,6 +19,7 @@ export const Registry: React.FC = () => {
         back="Chip in on a group gift"
         link="http://www.zola.com/registry/kristiandjoshua2022"
       />
+      <ZZFooter />
     </section>
   );
 };

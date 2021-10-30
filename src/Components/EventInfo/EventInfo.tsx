@@ -2,6 +2,7 @@ import React from "react";
 import Map from "../Map";
 import "./EventInfo.css";
 import { FlipCard } from "../FlipCard/FlipCard";
+import { ZZFooter } from "../ZZFooter/ZZFooter";
 
 export const EventInfo: React.FC = () => {
   return (
@@ -187,6 +188,7 @@ export const EventInfo: React.FC = () => {
           </li>
         </ul>
       </article>
+      <ZZFooter />
     </section>
   );
 };

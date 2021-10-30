@@ -6,6 +6,7 @@ import { modalStyles, PersonRsvp } from "../Person/Person";
 import "./InviteDetails.css";
 import { Loading } from "../Loading/Loading";
 import Modal from "react-modal";
+import { ZZFooter } from "../ZZFooter/ZZFooter";
 
 export const InviteDetails: React.FC<RouteComponentProps> = ({
   match
@@ -166,6 +167,7 @@ export const InviteDetails: React.FC<RouteComponentProps> = ({
               Thanks for letting us know! Your request has been noted.
             </h2>
           </Modal>
+          <ZZFooter />
         </>
       )}
     </>
