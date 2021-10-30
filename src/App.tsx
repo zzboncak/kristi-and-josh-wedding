@@ -1,12 +1,15 @@
 import React from "react";
 import { Switch, Route, useLocation } from "react-router-dom";
 import "./App.css";
-import { Registry, RSVP } from "./Components";
-import { InviteDetails } from "./Components/InviteDetails";
-import { Link } from "./Components/Link/Link";
+import {
+  Registry,
+  RSVP,
+  AboutUs,
+  InviteDetails,
+  EventInfo,
+  Link
+} from "./Components";
 import { useTransition, animated } from "react-spring";
-import { AboutUs } from "./Components/AboutUs";
-import { EventInfo } from "./Components/EventInfo";
 
 function App(): JSX.Element {
   return (

@@ -1,6 +1,6 @@
 import React from "react";
-import { Link } from "./Link/Link";
-import { Invite } from "../types";
+import { Link } from "../Link/Link";
+import { Invite } from "../../types";
 import "./InviteCard.css";
 
 export const InviteCard: React.FC<Invite> = ({

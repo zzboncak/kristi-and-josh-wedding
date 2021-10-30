@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { RouteComponentProps } from "react-router";
-import { Invite, Person } from "../types";
-import { fetchInviteAndPeople, updateInvite } from "../utilities";
-import { modalStyles, PersonRsvp } from "./Person";
+import { Invite, Person } from "../../types";
+import { fetchInviteAndPeople, updateInvite } from "../../utilities";
+import { modalStyles, PersonRsvp } from "../Person/Person";
 import "./InviteDetails.css";
-import { Loading } from "./Loading";
+import { Loading } from "../Loading/Loading";
 import Modal from "react-modal";
 
 export const InviteDetails: React.FC<RouteComponentProps> = ({
