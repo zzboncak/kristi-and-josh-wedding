@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import { API_ENDPOINT } from "../config";
-import { Invite } from "../types";
-import { InviteCard } from "./InviteCard";
-import { Loading } from "./Loading";
+import { API_ENDPOINT } from "../../config";
+import { Invite } from "../../types";
+import { InviteCard } from "../InviteCard/InviteCard";
+import { Loading } from "../Loading/Loading";
 import "./RSVP.css";
 
 export const RSVP: React.FC = () => {

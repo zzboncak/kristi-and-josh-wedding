@@ -1,7 +1,7 @@
 import React from "react";
-import Map from "./Map";
+import Map from "../Map";
 import "./EventInfo.css";
-import { FlipCard } from "./FlipCard";
+import { FlipCard } from "../FlipCard/FlipCard";
 
 export const EventInfo: React.FC = () => {
   return (

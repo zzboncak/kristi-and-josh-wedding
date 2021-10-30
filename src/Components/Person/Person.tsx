@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from "react";
-import { API_ENDPOINT } from "../config";
-import { Person, RSVP_Options } from "../types";
-import { api } from "../utilities";
+import { API_ENDPOINT } from "../../config";
+import { Person, RSVP_Options } from "../../types";
+import { api } from "../../utilities";
 import "./Person.css";
 import Confetti from "react-confetti";
 import useWindowSize from "react-use/lib/useWindowSize";
 import Modal from "react-modal";
-import { FallingEmojis } from "./FallingEmojis";
+import { FallingEmojis } from "../FallingEmojis/FallingEmojis";
 
 Modal.setAppElement("#root");
 

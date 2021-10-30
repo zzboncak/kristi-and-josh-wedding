@@ -1,5 +1,5 @@
 import React from "react";
-import { FlipCard } from "./FlipCard";
+import { FlipCard } from "../FlipCard/FlipCard";
 import "./Registry.css";
 
 export const Registry: React.FC = () => {
