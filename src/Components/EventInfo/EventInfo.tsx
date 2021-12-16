@@ -8,6 +8,29 @@ export const EventInfo: React.FC = () => {
   return (
     <section>
       <article className="event-section">
+        <h3 className="event-info-header header">COVID-19 Info</h3>
+        <p className="event-paragraph">
+          We recognize that there is a wide range of opinions
+          regarding masking during the COVID-19 pandemic. We want you
+          to come and enjoy our wedding without worry, judgment, or
+          fear of being judged! In that spirit, we will be following
+          the{" "}
+          <a
+            href="https://www.brixonfox.com/covid19"
+            target="_blank"
+            rel="noreferrer"
+          >
+            facility&apos;s guidelines
+          </a>{" "}
+          as required. The choice whether or not to wear a mask is
+          yours. However, we will not be strictly monitoring everyone
+          and politely ask that you make others feel welcome and
+          comfortable with their decision. The wedding party nor the
+          facility is liable should anyone fall ill after attending.
+        </p>
+      </article>
+
+      <article className="event-section">
         <h3 className="event-info-header header">Location</h3>
         <p>
           The ceremony and reception will
